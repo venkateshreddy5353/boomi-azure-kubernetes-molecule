@@ -521,7 +521,7 @@
                         "type": "Microsoft.Common.TextBox",
                         "label": "Boomi Molecule Name",
                         "toolTip": "The name for the Boomi Molecule cluster.",
-                        "defaultValue": "ESI_Boomi_Molecule_AKS",
+                        "defaultValue": "Boomi_Molecule_AKS",
                         "constraints": {
                             "required": true,
                             "regex": "^.{1,255}$",
