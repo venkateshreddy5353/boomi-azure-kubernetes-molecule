@@ -292,7 +292,7 @@
         }
       },
       "BoomiMoleculeName": {
-      "defaultValue": "Boomi-AKS",
+      "defaultValue": "ESI-Boomi-AKS",
         "type": "string",
         "metadata": {
           "description": "The Boomi Molecule cluster name"

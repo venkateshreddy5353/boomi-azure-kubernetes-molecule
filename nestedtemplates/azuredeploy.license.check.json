@@ -246,7 +246,7 @@
       }
     },
     "BoomiMoleculeName": {
-      "defaultValue": "Boomi-AKS",
+      "defaultValue": "ESI-Boomi-AKS",
       "type": "string",
       "metadata": {
         "description": "The Boomi Molecule cluster name"
@@ -281,7 +281,7 @@
    },
   "resources": [
     {
-      "name": "BoomiAKSQuickStart",
+      "name": "ESIBoomiAKS",
       "condition": "[equals(parameters('deploymentCondition'), 'SUCCESS')]",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2021-04-01",
@@ -404,15 +404,15 @@
   "outputs": {
     "virtualMachinePublicIpAddress": {
       "type": "string",
-      "value": "[reference('BoomiAKSQuickStart','2021-04-01').outputs.virtualMachinePublicIpAddress.value]"
+      "value": "[reference('ESIBoomiAKS','2021-04-01').outputs.virtualMachinePublicIpAddress.value]"
     },
     "applicationGatewayPublicIpAddress": {
       "type": "string",
-      "value": "[reference('BoomiAKSQuickStart','2021-04-01').outputs.applicationGatewayPublicIpAddress.value]"
+      "value": "[reference('ESIBoomiAKS','2021-04-01').outputs.applicationGatewayPublicIpAddress.value]"
     },
     "netAppFileVolumeIPAddress": {
       "type": "string",
-      "value": "[reference('BoomiAKSQuickStart','2021-04-01').outputs.netAppFileVolumeIPAddress.value]"
+      "value": "[reference('ESIBoomiAKS','2021-04-01').outputs.netAppFileVolumeIPAddress.value]"
     }
   }
 }

@@ -212,7 +212,7 @@ spec:
     matchLabels:
       app: molecule
   serviceName: "molecule-service"
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
@@ -228,7 +228,7 @@ spec:
       securityContext:
         fsGroup: 1000 
       containers:
-      - image: boomi/molecule:4.2.0
+      - image: boomi/molecule:release-rhel
         imagePullPolicy: Always
         name: atom-node
         ports:
@@ -302,7 +302,7 @@ spec:
     matchLabels:
       app: molecule
   serviceName: "molecule-service"
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
@@ -318,7 +318,7 @@ spec:
       securityContext:
         fsGroup: 1000
       containers:
-      - image: boomi/molecule:4.2.0
+      - image: boomi/molecule:release-rhel
         imagePullPolicy: Always
         name: atom-node
         ports:
@@ -435,8 +435,8 @@ spec:
     apiVersion: apps/v1
     kind: StatefulSet
     name: molecule
-  minReplicas: 3
-  maxReplicas: 20
+  minReplicas: 1
+  maxReplicas: 5
   metrics:
   - type: Resource
     resource:
@@ -444,6 +444,12 @@ spec:
       target:
         type: Utilization
         averageUtilization: 60
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
 EOF
 
 
@@ -472,4 +478,4 @@ sleep 120
 
 kubectl apply -f /tmp/ingress.yaml --namespace=aks-boomi-molecule --kubeconfig=/root/.kube/config
 
-rm /tmp/secrets.yaml
+# rm /tmp/secrets.yaml
